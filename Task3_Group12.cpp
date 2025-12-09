@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -22,6 +23,7 @@ int main(){
 	cin >> a;
 	cout << "Please enter b: ";
 	cin >> b;
+	cin.ignore(); // clears leftover /n (newline character) so that getline works properly
 
 	cout << "Enter the text you want to have ciphered: ";
 	getline(cin, text);
@@ -55,7 +57,7 @@ void decipher(string& text, int len, int a, int b){
 
 	int modinverse;
 
-	for (int i = 0; i < letterlistlen; i++){
+	for (int i = 1; i < letterlistlen; i++){
 
 		if ( (i*a) % letterlistlen == 1 ){
 			modinverse = i;    // modular inverse identified
@@ -70,7 +72,7 @@ void decipher(string& text, int len, int a, int b){
 
 			if ( text[i]==letterlist[j] ){      // Letter identified
 
-				text[i] = letterlist[ ( ((j-b)*modinverse ) % letterlistlen) ];    // Affine decryption formula once letter is identified
+				text[i] = letterlist[ ( ((j-b+letterlistlen)*modinverse ) % letterlistlen) ];    // Affine decryption, +letterlistlen to avoid negative indexing
 				break;    //Letter to be deciphered identified, no need to keep going
 			}
 
