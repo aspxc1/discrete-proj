@@ -2,7 +2,7 @@
 using namespace std;
 
 
-char letterlist[] = {'A','B','C','D','E','F','G','H','I','L','M','N','O','P','R','S','T','U'};   // Gaelic Alphabet (assuming input is fully upper-case)	
+char letterlist[] = {'A','B','C','D','E','F','G','H','I','L','M','N','O','P','R','S','T','U'};   // Scottish Gaelic Alphabet (assuming input is fully upper-case)	
 
 int letterlistlen = sizeof(letterlist)/sizeof(letterlist[0]);
 
@@ -14,6 +14,9 @@ int main(){
 	string text;
 	int a;
 	int b;
+	
+	cout << "Group 12, Task 3" << endl << "===========================================" << endl;
+	cout << "Affine Cipher (Scottish Gaelic Alphabet)" << endl <<"===========================================" << endl;
 
 	cout << "The Affine Cipher algorithim requires ciphering keys a and b" << endl << "Please enter a: ";
 	cin >> a;
